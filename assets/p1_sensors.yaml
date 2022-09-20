@@ -63,23 +63,23 @@
   state_topic: "sensors/power/p1meter/l1_instant_power_usage"
   value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L2 Instant Power Usage
-  unique_id: 'sensor.p1_l2_instant_power_usage'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/l2_instant_power_usage"
-  value_template: "{{ value|float / 1000 }}"
+#   - platform: mqtt
+#   name: P1 L2 Instant Power Usage
+#   unique_id: 'sensor.p1_l2_instant_power_usage'
+#   device_class: power
+#   state_class: measurement
+#   unit_of_measurement: 'kW'
+#   state_topic: "sensors/power/p1meter/l2_instant_power_usage"
+#   value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L3 Instant Power Usage
-  unique_id: 'sensor.p1_l3_instant_power_usage'
-  device_class: power
-  state_class: measurement
-  unit_of_measurement: 'kW'
-  state_topic: "sensors/power/p1meter/l3_instant_power_usage"
-  value_template: "{{ value|float / 1000 }}"
+# - platform: mqtt
+#   name: P1 L3 Instant Power Usage
+#   unique_id: 'sensor.p1_l3_instant_power_usage'
+#   device_class: power
+#   state_class: measurement
+#   unit_of_measurement: 'kW'
+#   state_topic: "sensors/power/p1meter/l3_instant_power_usage"
+#   value_template: "{{ value|float / 1000 }}"
 
 - platform: mqtt
   name: P1 L1 Instant Power Current
@@ -90,23 +90,23 @@
   state_topic: "sensors/power/p1meter/l1_instant_power_current"
   value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L2 Instant Power Current
-  unique_id: 'sensor.p1_l2_instant_power_current'
-  device_class: current
-  state_class: measurement
-  unit_of_measurement: 'A'
-  state_topic: "sensors/power/p1meter/l2_instant_power_current"
-  value_template: "{{ value|float / 1000 }}"
+#   - platform: mqtt
+#   name: P1 L2 Instant Power Current
+#   unique_id: 'sensor.p1_l2_instant_power_current'
+#   device_class: current
+#   state_class: measurement
+#   unit_of_measurement: 'A'
+#   state_topic: "sensors/power/p1meter/l2_instant_power_current"
+#   value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L3 Instant Power Current
-  unique_id: 'sensor.p1_l3_instant_power_current'
-  device_class: current
-  state_class: measurement
-  unit_of_measurement: 'A'
-  state_topic: "sensors/power/p1meter/l3_instant_power_current"
-  value_template: "{{ value|float / 1000 }}"
+# - platform: mqtt
+#   name: P1 L3 Instant Power Current
+#   unique_id: 'sensor.p1_l3_instant_power_current'
+#   device_class: current
+#   state_class: measurement
+#   unit_of_measurement: 'A'
+#   state_topic: "sensors/power/p1meter/l3_instant_power_current"
+#   value_template: "{{ value|float / 1000 }}"
 
 - platform: mqtt
   name: P1 L1 Voltage
@@ -117,23 +117,23 @@
   state_topic: "sensors/power/p1meter/l1_voltage"
   value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L2 Voltage
-  unique_id: 'sensor.p1_l2_voltage'
-  device_class: voltage
-  state_class: measurement
-  unit_of_measurement: 'V'   
-  state_topic: "sensors/power/p1meter/l2_voltage"
-  value_template: "{{ value|float / 1000 }}"
+# - platform: mqtt
+#   name: P1 L2 Voltage
+#   unique_id: 'sensor.p1_l2_voltage'
+#   device_class: voltage
+#   state_class: measurement
+#   unit_of_measurement: 'V'   
+#   state_topic: "sensors/power/p1meter/l2_voltage"
+#   value_template: "{{ value|float / 1000 }}"
 
-- platform: mqtt
-  name: P1 L3 Voltage
-  unique_id: 'sensor.p1_l3_voltage'
-  device_class: voltage
-  state_class: measurement
-  unit_of_measurement: 'V'   
-  state_topic: "sensors/power/p1meter/l3_voltage"
-  value_template: "{{ value|float / 1000 }}"
+# - platform: mqtt
+#   name: P1 L3 Voltage
+#   unique_id: 'sensor.p1_l3_voltage'
+#   device_class: voltage
+#   state_class: measurement
+#   unit_of_measurement: 'V'   
+#   state_topic: "sensors/power/p1meter/l3_voltage"
+#   value_template: "{{ value|float / 1000 }}"
 
 - platform: mqtt
   name: P1 Gas Usage
