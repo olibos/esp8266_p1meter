@@ -655,8 +655,9 @@ void setup()
     Serial.println(F("Connected to WIFI..."));
 
     // * Keep LED on
+    // For a standard Arduino, pulling the LED_BUILTIN to HIGH would turn the LED on . But on D1 Mini that actually turns the LED off .
     ticker.detach();
-    digitalWrite(LED_BUILTIN, LOW);
+    digitalWrite(LED_BUILTIN, HIGH);
 
     // * Configure OTA
     setup_ota();
