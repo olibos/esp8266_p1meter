@@ -136,6 +136,8 @@ void send_metric(String name, long metric)
 
 void send_data_to_broker()
 {
+    digitalWrite(LED_BUILTIN, LOW);
+
     send_metric("consumption_low_tarif", CONSUMPTION_LOW_TARIF);
     send_metric("consumption_high_tarif", CONSUMPTION_HIGH_TARIF);
     send_metric("returndelivery_low_tarif", RETURNDELIVERY_LOW_TARIF);
@@ -160,6 +162,8 @@ void send_data_to_broker()
     send_metric("long_power_outages", LONG_POWER_OUTAGES);
     send_metric("short_power_drops", SHORT_POWER_DROPS);
     send_metric("short_power_peaks", SHORT_POWER_PEAKS);
+
+    digitalWrite(LED_BUILTIN, HIGH);
 }
 
 // **********************************
