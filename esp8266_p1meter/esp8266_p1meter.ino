@@ -136,6 +136,8 @@ void send_metric(String name, long metric)
 
 void send_data_to_broker()
 {
+    digitalWrite(LED_BUILTIN, LOW);
+
     send_metric("consumption_low_tarif", CONSUMPTION_LOW_TARIF);
     send_metric("consumption_high_tarif", CONSUMPTION_HIGH_TARIF);
     send_metric("returndelivery_low_tarif", RETURNDELIVERY_LOW_TARIF);
@@ -160,6 +162,8 @@ void send_data_to_broker()
     send_metric("long_power_outages", LONG_POWER_OUTAGES);
     send_metric("short_power_drops", SHORT_POWER_DROPS);
     send_metric("short_power_peaks", SHORT_POWER_PEAKS);
+
+    digitalWrite(LED_BUILTIN, HIGH);
 }
 
 // **********************************
@@ -278,28 +282,28 @@ bool decode_telegram(int len)
     // 1-0:1.8.1 = Elektra verbruik laag tarief (DSMR v4.0)
     if (strncmp(telegram, "1-0:1.8.1", strlen("1-0:1.8.1")) == 0)
     {
-        CONSUMPTION_LOW_TARIF = getValue(telegram, len, '(', '*');
+        CONSUMPTION_HIGH_TARIF = getValue(telegram, len, '(', '*');
     }
 
     // 1-0:1.8.2(000560.157*kWh)
     // 1-0:1.8.2 = Elektra verbruik hoog tarief (DSMR v4.0)
     if (strncmp(telegram, "1-0:1.8.2", strlen("1-0:1.8.2")) == 0)
     {
-        CONSUMPTION_HIGH_TARIF = getValue(telegram, len, '(', '*');
+        CONSUMPTION_LOW_TARIF = getValue(telegram, len, '(', '*');
     }
 	
     // 1-0:2.8.1(000560.157*kWh)
     // 1-0:2.8.1 = Elektra teruglevering laag tarief (DSMR v4.0)
     if (strncmp(telegram, "1-0:2.8.1", strlen("1-0:2.8.1")) == 0)
     {
-        RETURNDELIVERY_LOW_TARIF = getValue(telegram, len, '(', '*');
+        RETURNDELIVERY_HIGH_TARIF = getValue(telegram, len, '(', '*');
     }
 
     // 1-0:2.8.2(000560.157*kWh)
     // 1-0:2.8.2 = Elektra teruglevering hoog tarief (DSMR v4.0)
     if (strncmp(telegram, "1-0:2.8.2", strlen("1-0:2.8.2")) == 0)
     {
-        RETURNDELIVERY_HIGH_TARIF = getValue(telegram, len, '(', '*');
+        RETURNDELIVERY_LOW_TARIF = getValue(telegram, len, '(', '*');
     }
 
     // 1-0:1.7.0(00.424*kW) Actueel verbruik
@@ -655,8 +659,9 @@ void setup()
     Serial.println(F("Connected to WIFI..."));
 
     // * Keep LED on
+    // For a standard Arduino, pulling the LED_BUILTIN to HIGH would turn the LED on . But on D1 Mini that actually turns the LED off .
     ticker.detach();
-    digitalWrite(LED_BUILTIN, LOW);
+    digitalWrite(LED_BUILTIN, HIGH);
 
     // * Configure OTA
     setup_ota();
